@@ -1,13 +1,11 @@
 import requests
-import xml.etree.ElementTree as ET
 import re
 import tqdm
 from bs4 import BeautifulSoup
-import json
 import argparse
 import time
 import os
-
+import bibtexparser
 
 #############################################
 ## CLASSES AND UTILITIES
@@ -35,9 +33,9 @@ class Paper:
     def get_path_string(self):
         path_string = f'"{self.title}"'
         if self.cited_paper:
-            path_string += " which cited " + self.cited_paper.get_path_string()
+            path_string += "\n    which cited " + self.cited_paper.get_path_string()
         elif self.referenced_by_paper:
-            path_string += " which was referenced by " + self.referenced_by_paper.get_path_string()
+            path_string += "\n    which was referenced by " + self.referenced_by_paper.get_path_string()
         
         return path_string
     
@@ -57,7 +55,6 @@ def fetch_citation_titles(bibfile):
     :param bibfile: A string path to the .bib file containing citation data.
     :return: A list of the titles of each paper in the bibfile.
     """
-    import bibtexparser
     
     with open(bibfile) as bibtex_file:
         bib_database = bibtexparser.load(bibtex_file)
@@ -251,7 +248,7 @@ def printFindings(findings):
         for paper in papers:
             print("  " + paper.get_path_string())
             
-def check_papers(papers, editors_paper_ids):
+def check_papers(papers, editors_paper_ids, findings):
     for editor, editor_paper_ids in editors_paper_ids.items():
         editor_paper_ids = set(editor_paper_ids)
         for paper in papers:
@@ -305,7 +302,7 @@ def main():
 
     print("Beginning BFS...")
 
-    check_papers(papers, editors_paper_ids)
+    check_papers(papers, editors_paper_ids, findings)
                     
     fringe = list(papers)
     found_ids = set(paper.id for paper in papers)
@@ -334,7 +331,7 @@ def main():
                     new_papers.append(referenced_paper)
 
             fringe.extend(new_papers)
-            check_papers(new_papers, editors_paper_ids)
+            check_papers(new_papers, editors_paper_ids, findings)
         except KeyboardInterrupt:
             print(f"Keyboard interrupt, stopping BFS")
             break
