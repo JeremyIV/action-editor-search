@@ -32,6 +32,8 @@ $
 python <script-name>.py path/to/your/file.bib --editors_url=https://jmlr.org/tmlr/editorial-board.html --depth=2
 $
 
+Be warned that this script takes a long time to run, and the runtime increases ~exponentially with the depth. Try with depth=0 first to make sure everything works.
+
 #### Arguments
 
 - `bibfile`: Path to your `.bib` file.
