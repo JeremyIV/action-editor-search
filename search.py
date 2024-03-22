@@ -311,7 +311,7 @@ def main():
         try:
             paper = fringe.pop(0)
             
-            if paper.get_path_depth() > args.depth:
+            if paper.get_path_depth() == args.depth:
                 break
                 
             citing_papers, referenced_papers = get_citing_and_referenced_papers(paper.id, session)
