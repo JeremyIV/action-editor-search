@@ -26,10 +26,10 @@ This script helps authors identify potential action editors for their TMLR submi
 
 ### Usage
 
-Run the script by specifying the path to your `.bib` file, and optionally, the URL to the action editors webpage and the depth for the BFS:
+Run the script by specifying the path to your `.bib` file, and optionally the depth for the BFS:
 
 ```
-python search.py path/to/your/bibliography.bib --editors_url=https://jmlr.org/tmlr/editorial-board.html --depth=2
+python search.py path/to/your/bibliography.bib --depth=1
 ```
 
 Be warned that this script takes a long time to run, and the runtime increases ~exponentially with the depth. Try with depth=0 first to make sure everything works.
@@ -38,4 +38,4 @@ Be warned that this script takes a long time to run, and the runtime increases ~
 
 - `bibfile`: Path to your `.bib` file.
 - `--editors_url`: URL to the action editors webpage. Default is `https://jmlr.org/tmlr/editorial-board.html`.
-- `--depth`: Depth to which to perform the citation graph BFS. Default is `2`.
+- `--depth`: Depth to which to perform the citation graph BFS. Depth=0 simply checks if any of the papers in your bibliography were authored by action editors. Depth=1 additionally checks papers which cited or were cited by the papers in your bibliography. Runtime increases exponentially with the depth, so depth=2 can take a very long time. Higher depths are probably impractical and also irrelevant.
