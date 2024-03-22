@@ -1,4 +1,4 @@
-# Action Editor Suggester
+# Action Editor Search
 
 During the TMLR submission process, authors must suggest at least three action editors to handle their paper. This script helps authors find relevant AEs. Using the Semantic Scholar API, it performs a breadth-first search (BFS) through the citation graph, starting from the citations within a provided `.bib` file, identifying papers authored by the journal's action editors.
 
