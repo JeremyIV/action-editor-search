@@ -12,25 +12,25 @@ This script helps authors identify potential action editors for their TMLR submi
 ### Installation
 
 1. Clone this repository:
-   $
+   ```
    git clone https://github.com/JeremyIV/action-editor-search.git
-   $
+   ```
 2. Install the required dependencies:
-   $
+   ```
    pip install -r requirements.txt
-   $
+   ```
 3. Set your Semantic Scholar API key as an environment variable:
-   $
+   ```
    export S2_API_KEY='your_api_key_here'
-   $
+   ```
 
 ### Usage
 
 Run the script by specifying the path to your `.bib` file, and optionally, the URL to the action editors webpage and the depth for the BFS:
 
-$
-python <script-name>.py path/to/your/file.bib --editors_url=https://jmlr.org/tmlr/editorial-board.html --depth=2
-$
+```
+python search.py path/to/your/bibliography.bib --editors_url=https://jmlr.org/tmlr/editorial-board.html --depth=2
+```
 
 Be warned that this script takes a long time to run, and the runtime increases ~exponentially with the depth. Try with depth=0 first to make sure everything works.
 
