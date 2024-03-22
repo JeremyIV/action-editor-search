@@ -1,6 +1,6 @@
 # Action Editor Search
 
-During the TMLR submission process, authors must suggest at least three action editors to handle their paper. This script helps authors find relevant AEs. Using the Semantic Scholar API, it performs a breadth-first search (BFS) through the citation graph, starting from the citations within a provided `.bib` file, identifying papers authored by the journal's action editors.
+During the TMLR submission process, authors must suggest at least three action editors to handle their paper. This script helps authors find relevant AEs. Starting from the papers in your .bib file, it will use the Semantic Scholar API to perform a breadth-first search through the citation graph, identifying papers authored by the journal's action editors.
 
 ## Getting Started
 
@@ -38,4 +38,4 @@ Be warned that this script takes a long time to run, and the runtime increases ~
 
 - `bibfile`: Path to your `.bib` file.
 - `--editors_url`: URL to the action editors webpage. Default is `https://jmlr.org/tmlr/editorial-board.html`.
-- `--depth`: Depth to which to perform the citation graph BFS. Depth=0 simply checks if any of the papers in your bibliography were authored by action editors. Depth=1 additionally checks papers which cited or were cited by the papers in your bibliography. Runtime increases exponentially with the depth, so depth=2 can take a very long time. Higher depths are probably impractical and also irrelevant.
+- `--depth`: Depth to which to perform the citation graph BFS. Depth=0 simply checks if any of the papers in your bibliography were authored by action editors. Depth=1 additionally checks papers which cited/were cited by the papers in your bibliography. Runtime increases exponentially with the depth, so depth=2 can take a very long time. Higher depths are probably impractical and also irrelevant.
