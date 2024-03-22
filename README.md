@@ -32,7 +32,7 @@ Run the script by specifying the path to your paper's `.bib` file, and optionall
 python search.py path/to/your/bibliography.bib --depth=1
 ```
 
-Be warned that this script takes a long time to run, and the runtime increases ~exponentially with the depth.
+Be warned that this script takes a long time to run, and the runtime increases ~exponentially with the depth. It prints a report of its findings to stdout, consider piping to `tee` for a more persistent output.
 
 #### Arguments
 
