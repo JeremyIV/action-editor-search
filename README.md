@@ -1,6 +1,6 @@
 # Action Editor Suggester
 
-This script helps authors identify potential action editors for their TMLR submissions by analyzing citation graphs derived from `.bib` files. Using the Semantic Scholar API, it performs a breadth-first search (BFS) through the citation graph starting from the citations within the provided `.bib` file, identifying papers authored by the journal's action editors.
+During the TMLR submission process, authors must suggest at least three action editors to handle their paper. This script helps authors find relevant AEs. Using the Semantic Scholar API, it performs a breadth-first search (BFS) through the citation graph, starting from the citations within a provided `.bib` file, identifying papers authored by the journal's action editors.
 
 ## Getting Started
 
@@ -26,13 +26,13 @@ This script helps authors identify potential action editors for their TMLR submi
 
 ### Usage
 
-Run the script by specifying the path to your `.bib` file, and optionally the depth for the BFS:
+Run the script by specifying the path to your paper's `.bib` file, and optionally the depth for the BFS:
 
 ```
 python search.py path/to/your/bibliography.bib --depth=1
 ```
 
-Be warned that this script takes a long time to run, and the runtime increases ~exponentially with the depth. Try with depth=0 first to make sure everything works.
+Be warned that this script takes a long time to run, and the runtime increases ~exponentially with the depth.
 
 #### Arguments
 
