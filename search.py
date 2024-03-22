@@ -272,7 +272,7 @@ def main():
 
     parser.add_argument("bibfile", type=str, help="Path to your .bib file")
     parser.add_argument("--editors_url", type=str, default="https://jmlr.org/tmlr/editorial-board.html", help="URL to the action editors webpage.")
-    parser.add_argument("--depth", type=int, default=2, help="Depth to which to perform the citation graph BFS.")
+    parser.add_argument("--depth", type=int, default=1, help="Depth to which to perform the citation graph BFS.")
 
     args = parser.parse_args()
 
