@@ -1,6 +1,6 @@
 # Action Editor Suggester
 
-This script helps authors identify potential action editors for their JMLR/TMLR submissions by analyzing citation graphs derived from `.bib` files. Using the Semantic Scholar API, it performs a breadth-first search (BFS) through the citation graph starting from the citations within the provided `.bib` file, identifying papers authored by the journal's action editors.
+This script helps authors identify potential action editors for their TMLR submissions by analyzing citation graphs derived from `.bib` files. Using the Semantic Scholar API, it performs a breadth-first search (BFS) through the citation graph starting from the citations within the provided `.bib` file, identifying papers authored by the journal's action editors.
 
 ## Getting Started
 
